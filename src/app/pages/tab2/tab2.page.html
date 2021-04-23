@@ -1,0 +1,29 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>
+      Historial
+    </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="sendEmail()" color="primary">
+        <ion-icon slot="icon-only" name="send"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-list>
+    <ion-item detail *ngFor="let archive of dataLocalService.archives" (click)="openLog( archive)">
+      <ion-icon slot="start" [name]="archive.icon" color="primary"></ion-icon>
+      <ion-label>
+        <h2>{{ archive.text }} </h2>
+        <p> {{ archive.created | date: 'medium' }} </p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+
+</ion-content>
